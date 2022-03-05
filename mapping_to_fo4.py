@@ -151,10 +151,8 @@ with open(sys.argv[1]) as json_file:
     def pin_pretty_name(pin_number):
         for netname in module["netnames"]:
             net = module["netnames"][netname]
-            counter = 0
             if pin_number in net["bits"]:
-                return "{}[{}] (net {})".format(netname, counter, pin_number)
-                counter += 1
+                return "{}[{}] (net {})".format(netname, net["bits"].index(pin_number), pin_number)
         print("Error: Cannot find net (aka connection) %d in the netnames".format(
             pin_number))
 
