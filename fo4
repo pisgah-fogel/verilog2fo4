@@ -1,0 +1,4 @@
+#!/bin/bash
+VLOG_FILE_NAME=$1 yosys get_mapping.tcl
+python3 mapping_to_fo4.py mapping.json 
+rm mapping.json
